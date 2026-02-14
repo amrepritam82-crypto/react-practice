@@ -1,0 +1,35 @@
+#heading {
+    color: grey;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#parent {
+    background-color: lightblue;
+    padding: 20px;
+    border: 1px solid black;
+    height: 400px;
+    width: 300px;
+}
+
+#child {
+    background-color: lightcoral;
+    padding: 10px;
+    border: 1px solid black;
+    height: 100px;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    line-height: 100px; /* Vertically center the text */
+}
+
+#child2 {
+    background-color: lightcoral;
+    padding: 10px;
+    border: 1px solid black;
+    height: 100px;
+    width: 200px;
+    margin: auto;
+    text-align: center;
+    line-height: 100px; /* Vertically center the text */
+}
