@@ -1,0 +1,24 @@
+{
+  "name": "react-practice",
+  "version": "1.0.0",
+  "description": "React Practice",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/amrepritam82-crypto/react-practice.git"
+  },
+  "devDependencies": {
+    "parcel": "^2.16.4"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^19.2.4"
+  },
+  "browserslist": [
+    "last 15 Chrome version"
+  ] 
+}
