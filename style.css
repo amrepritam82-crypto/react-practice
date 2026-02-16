@@ -1,5 +1,11 @@
-#heading {
+.heading {
     color: grey;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.subheading {
+    color: darkgrey;
     text-align: center;
     font-family: Arial, sans-serif;
 }
