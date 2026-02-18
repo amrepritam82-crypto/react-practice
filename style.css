@@ -1,41 +1,294 @@
-.heading {
-    color: grey;
-    text-align: center;
-    font-family: Arial, sans-serif;
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-.subheading {
-    color: darkgrey;
-    text-align: center;
-    font-family: Arial, sans-serif;
+body {
+  background-color: #f8f9fa;
 }
 
-#parent {
-    background-color: lightblue;
-    padding: 20px;
-    border: 1px solid black;
-    height: 400px;
-    width: 300px;
+/* Header */
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: lightgrey;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
 }
 
-#child {
-    background-color: lightcoral;
-    padding: 10px;
-    border: 1px solid black;
-    height: 100px;
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    line-height: 100px; /* Vertically center the text */
+.header-container {
+  max-width: 1200px;
+  margin: auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
 }
 
-#child2 {
-    background-color: lightcoral;
-    padding: 10px;
-    border: 1px solid black;
-    height: 100px;
-    width: 200px;
-    margin: auto;
-    text-align: center;
-    line-height: 100px; /* Vertically center the text */
+/* Logo Section */
+.logo-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.logo-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+/* Location */
+.location {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #4b5563;
+  cursor: pointer;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.location:hover {
+  color: #ff4d4f;
+}
+
+/* Navigation */
+.nav-items {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #374151;
+  font-size: 15px;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff4d4f;
+}
+
+/* Cart Badge */
+.cart {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: #ff4d4f;
+  color: white;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+/* Body */
+
+/* Body Container */
+.body {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+  gap: 10px;
+}
+
+.search-container input {
+  width: 60%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.search-container input:focus {
+  border-color: #ff4d4f;
+}
+
+.search-container button {
+  padding: 12px 20px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.search-container button:hover {
+  background: #e63946;
+}
+
+/* Restaurant Grid */
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Restaurant Card */
+.restaurant-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.restaurant-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Card Content */
+.card-content {
+  padding: 16px;
+}
+
+.dish-name {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1f2937;
+}
+
+.restaurant-name {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* Meta Info */
+.card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.rating {
+  background: #16a34a;
+  color: white;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.delivery-time {
+  color: #374151;
+  font-weight: 500;
+}
+
+.location {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+/* Footer */
+
+.footer {
+  background-color: #111827;
+  color: #e5e7eb;
+  padding-top: 50px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 24px 40px 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 40px;
+}
+
+.footer-section h2,
+.footer-section h4 {
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+
+.footer-logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.footer-tagline {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li:hover {
+  color: #ff4d4f;
+}
+
+.footer-section p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #9ca3af;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid #374151;
+  text-align: center;
+  padding: 18px 0;
+  font-size: 13px;
+  color: #9ca3af;
 }
