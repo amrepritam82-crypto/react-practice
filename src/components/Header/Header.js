@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from "react";
 
 const Header = () => {
+  const [btnNameLogin, setBtnNameLogin] = useState("Login");  
   return (
     <header className="header">
       <div className="header-container">
@@ -22,6 +24,13 @@ const Header = () => {
             Cart
             <span className="cart-badge">2</span>
           </a>
+          <button className="login-button" onClick={() => {
+            if (btnNameLogin === "Login") {
+              setBtnNameLogin("Logout");
+            } else {
+              setBtnNameLogin("Login");
+            }
+          }}>{btnNameLogin}</button>
         </nav>
       </div>
     </header>

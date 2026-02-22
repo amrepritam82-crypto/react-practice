@@ -20,6 +20,17 @@ body {
   z-index: 1000;
 }
 
+.login-button{
+  padding: 8px 16px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
 .header-container {
   max-width: 1200px;
   margin: auto;
@@ -177,54 +188,136 @@ body {
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 }
 
+/* Image wrapper for overlay badges */
+.card-img-wrapper {
+  position: relative;
+}
+
 .restaurant-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  display: block;
+}
+
+/* Discount banner overlay */
+.card-discount {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  color: white;
+  padding: 18px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.discount-header {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.discount-sub {
+  font-size: 12px;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+/* Veg badge */
+.veg-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: white;
+  color: #16a34a;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 /* Card Content */
 .card-content {
-  padding: 16px;
+  padding: 14px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
+/* Restaurant name — primary title */
 .dish-name {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 17px;
+  font-weight: 700;
   color: #1f2937;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
+/* Locality + Area — subtitle */
 .restaurant-name {
-  font-size: 14px;
+  font-size: 13px;
   color: #6b7280;
-  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Meta Info */
+/* Meta Info — rating + delivery time */
 .card-meta {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
   font-size: 13px;
-  margin-bottom: 8px;
+  margin: 4px 0;
 }
 
+/* Rating pill — default green */
 .rating {
   background: #16a34a;
   color: white;
   padding: 3px 8px;
   border-radius: 6px;
-  font-weight: 500;
-}
-
-.delivery-time {
-  color: #374151;
-  font-weight: 500;
-}
-
-.location {
+  font-weight: 600;
   font-size: 13px;
+}
+
+/* High rating (>=4.5) — darker green */
+.rating.high {
+  background: #15803d;
+}
+
+/* Delivery time text */
+.card-meta span:last-child {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Separator dot between rating and time */
+.card-meta span:last-child::before {
+  content: "·";
+  margin-right: 8px;
+  color: #d1d5db;
+}
+
+/* Cuisines */
+.cuisine {
+  font-size: 12px;
   color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Price */
+.price {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 4px;
 }
 
 /* Footer */
@@ -291,4 +384,104 @@ body {
   padding: 18px 0;
   font-size: 13px;
   color: #9ca3af;
+}
+
+/* ===================== */
+/* Shimmer UI            */
+/* ===================== */
+
+/* Shimmer animation keyframes */
+@keyframes shimmerSlide {
+  0% {
+    background-position: -600px 0;
+  }
+  100% {
+    background-position: 600px 0;
+  }
+}
+
+/* Shared shimmer animation class */
+.shimmer-animate {
+  background: linear-gradient(
+    90deg,
+    #e2e8f0 25%,
+    #f1f5f9 50%,
+    #e2e8f0 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmerSlide 1.4s infinite linear;
+  border-radius: 6px;
+}
+
+/* Grid matches restaurant-grid layout */
+.shimmer-grid {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* Card shell matches restaurant-card */
+.shimmer-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Image placeholder */
+.shimmer-img {
+  width: 100%;
+  height: 180px;
+}
+
+/* Content area */
+.shimmer-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Base line style */
+.shimmer-line {
+  height: 14px;
+  border-radius: 6px;
+}
+
+/* Title line — dish name */
+.shimmer-title {
+  width: 75%;
+  height: 18px;
+}
+
+/* Subtitle line — restaurant name */
+.shimmer-subtitle {
+  width: 55%;
+  height: 14px;
+}
+
+/* Meta row — rating + delivery time */
+.shimmer-meta {
+  display: flex;
+  gap: 10px;
+}
+
+/* Badge — rating / delivery pill */
+.shimmer-badge {
+  width: 72px;
+  height: 24px;
+  border-radius: 6px;
+}
+
+/* Short lines — location, cuisine */
+.shimmer-short {
+  width: 65%;
+}
+
+/* Extra short line — price */
+.shimmer-xshort {
+  width: 40%;
 }

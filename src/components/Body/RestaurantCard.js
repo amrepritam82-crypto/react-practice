@@ -1,35 +1,53 @@
 import React from "react";
 
+const CLOUDINARY_BASE_URL =
+  "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
+
 const RestaurantCard = ({ data }) => {
   const {
-    restaurantName,
-    dishName,
-    image,
-    rating,
-    deliveryTime,
-    location,
-    cuisine,
-    priceForTwo,
+    name,
+    cloudinaryImageId,
+    locality,
+    areaName,
+    costForTwo,
+    cuisines,
+    avgRating,
+    sla,
+    aggregatedDiscountInfoV3,
+    veg,
   } = data;
 
   return (
     <div className="restaurant-card">
-      <img src={image} alt={dishName} />
+      <div className="card-img-wrapper">
+        <img
+          src={CLOUDINARY_BASE_URL + cloudinaryImageId}
+          alt={name}
+        />
+        {aggregatedDiscountInfoV3 && (
+          <div className="card-discount">
+            <span className="discount-header">{aggregatedDiscountInfoV3.header}</span>
+            <span className="discount-sub">{aggregatedDiscountInfoV3.subHeader}</span>
+          </div>
+        )}
+        {veg && <span className="veg-badge">🟢 Pure Veg</span>}
+      </div>
 
       <div className="card-content">
-        <h3 className="dish-name">{dishName}</h3>
-        <p className="restaurant-name">{restaurantName}</p>
+        <h3 className="dish-name">{name}</h3>
+        <p className="restaurant-name">
+          {locality}, {areaName}
+        </p>
 
         <div className="card-meta">
-          <span className={`rating ${rating >= 4.5 ? "high" : ""}`}>
-            ⭐ {rating}
+          <span className={`rating ${avgRating >= 4.5 ? "high" : ""}`}>
+            ⭐ {avgRating}
           </span>
-          <span>{deliveryTime} mins</span>
+          <span>{sla?.slaString}</span>
         </div>
 
-        <p className="location">{location}</p>
-        <p className="cuisine">{cuisine.join(", ")}</p>
-        <p className="price">₹{priceForTwo} for two</p>
+        <p className="cuisine">{cuisines?.join(", ")}</p>
+        <p className="price">{costForTwo}</p>
       </div>
     </div>
   );
